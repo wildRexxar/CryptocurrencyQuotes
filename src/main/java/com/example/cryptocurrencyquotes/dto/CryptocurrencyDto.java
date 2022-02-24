@@ -1,26 +1,15 @@
-package com.example.cryptocurrencyquotes.entity;
+package com.example.cryptocurrencyquotes.dto;
 
-import javax.persistence.*;
-
-@Entity
-public class Cryptocurrency {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CryptocurrencyDto {
     private long id;
-
     private String title;
-
     private double price;
 
-    @ManyToOne
-    private User user;
-
-    public Cryptocurrency() {
+    public CryptocurrencyDto() {
     }
 
-    public Cryptocurrency(User user, String title, double price) {
-        this.user = user;
+    public CryptocurrencyDto(long id, String title, double price) {
+        this.id = id;
         this.title = title;
         this.price = price;
     }
@@ -47,13 +36,5 @@ public class Cryptocurrency {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }
